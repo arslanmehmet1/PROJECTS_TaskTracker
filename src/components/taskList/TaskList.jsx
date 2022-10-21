@@ -1,8 +1,20 @@
+import axios from "axios";
 import React from "react";
 import { RiDeleteBack2Fill } from "react-icons/ri";
 
-const TaskList = ({ task }) => {
+const TaskList = ({ task, getData }) => {
   // console.log(task);
+
+  const deleteTask = async (id) => {
+    const url = "https://6351821b3e9fa1244e60878b.mockapi.io/api/task";
+    try {
+      await axios.delete(`${url}/${id}`);
+    } catch (error) {
+      console.log(error);
+    }
+    getData();
+  };
+
   return (
     <div>
       {task.map((item) => {
@@ -18,6 +30,7 @@ const TaskList = ({ task }) => {
             </div>
             <div>
               <RiDeleteBack2Fill
+                onClick={(e) => deleteTask(id)}
                 style={{
                   cursor: "pointer",
                   marginRight: "20px",
