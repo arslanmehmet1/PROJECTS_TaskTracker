@@ -14,7 +14,9 @@ const AddTask = ({ getData }) => {
     console.log(newTask);
     addNewTask(newTask);
     setTask("");
+    document.querySelector("#formTask").value = "";
     setDate("");
+    document.querySelector("#formDate").value = "";
   };
 
   const addNewTask = async (newTask) => {
@@ -39,6 +41,7 @@ const AddTask = ({ getData }) => {
             onChange={(e) => {
               setTask(e.target.value);
             }}
+            id="formTask"
           />
         </Form.Group>
 
@@ -49,6 +52,7 @@ const AddTask = ({ getData }) => {
             onChange={(e) => {
               setDate(e.target.value);
             }}
+            id="formDate"
           />
         </Form.Group>
         <div className="text-center">

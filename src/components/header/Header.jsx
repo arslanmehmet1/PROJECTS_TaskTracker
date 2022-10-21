@@ -7,7 +7,7 @@ const Header = () => {
     <div>
       <div className="d-flex justify-content-evenly align-items-center">
         <TaskPng />
-        <h1 className="display-5">TASK TRACKER</h1>
+        <h1 className="display-6">TASK TRACKER</h1>
       </div>
     </div>
   );
