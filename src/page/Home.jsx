@@ -7,7 +7,7 @@ import axios from "axios";
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [text, setText] = useState("Show Text Bar");
-  const [task, setTask] = useState();
+  const [task, setTask] = useState([]);
   const url = "https://6351821b3e9fa1244e60878b.mockapi.io/api/task";
 
   const toggle = () => {
@@ -28,19 +28,20 @@ const Home = () => {
 
   return (
     <div>
-      <Button
-        variant="dark"
-        size="lg"
-        onClick={() => {
-          toggle();
-        }}
-      >
-        {text}
-      </Button>
+      <div className="d-flex mt-4 justify-content-center flex-column">
+        <Button
+          variant="dark"
+          onClick={() => {
+            toggle();
+          }}
+        >
+          {text}
+        </Button>
 
-      {isOpen && <AddTask />}
+        {!isOpen && <AddTask getData={getData} />}
 
-      <TaskList task={task} />
+        <TaskList task={task} />
+      </div>
     </div>
   );
 };
